@@ -1,55 +1,57 @@
 # GazeTR
 
-We provide the code of GazeTR-Hybrid in "**Gaze Estimation using Transformer**". This work is accepted by ICPR2022.
+ICPR2022で採択された"**Gaze Estimation using Transformer**"の研究において、GazeTR-Hybridのコードを提供しています。
 
-We recommend you to use **data processing codes** provided in <a href="http://phi-ai.org/GazeHub/" target="_blank">*GazeHub*</a>.
-You can direct run the method' code using the processed dataset.
+データ処理には、<a href="http://phi-ai.org/GazeHub/" target="_blank">*GazeHub*</a>で提供されているコードを使用することを推奨します。処理済みデータセットを使用して、直接メソッドのコードを実行できます。
 
-*Note: Some people find that the code cannot be opened in their browser. Please directly download it and rename it as `xx.py`. In fact, the download step will be automatically processed, but the browser may cause this issue.*
+*注意: 一部のユーザーは、ブラウザでコードが開けない問題が発生することがあります。その場合、直接コードをダウンロードし、ファイル名を `xx.py` に変更してください。実際には、ダウンロードステップは自動的に処理されますが、ブラウザによってこの問題が発生することがあります。*
 
 <div align=center> <img src="src/overview.png"> </div>
 
 ## Requirements
-We build the project with `pytorch1.7.0`.
+このプロジェクトは pytorch1.7.0 を使用して構築します。
 
-The `warmup` is used following <a href="https://github.com/ildoonet/pytorch-gradual-warmup-lr" target="_blank">here</a>.
+`warmup` は <a href="https://github.com/ildoonet/pytorch-gradual-warmup-lr" target="_blank">こちら</a>を参考に使用します。
 
-## Usage
-### Directly use our code.
 
-You should perform three steps to run our codes.
+## 使用方法(Usage)
+### 直接コードを使用する場合
 
-1. Prepare the data using our provided data processing codes.
+コードを実行するために、以下の3つのステップを行う必要があります。
 
-2. Modify the `config/train/config_xx.yaml` and `config/test/config_xx.yaml`.
+1.	提供されたデータ処理コードを使用してデータを準備します。
+2.	`config/train/config_xx.yaml` と `config/test/config_xx.yaml` を修正します。
+3.	コマンドを実行します。
 
-3. Run the commands.
-
-To perform leave-one-person-out evaluation, you can run
-
+leave-one-person-out評価を行うには、以下のコマンドを実行します。
 ```
 python trainer/leave.py -s config/train/config_xx.yaml -p 0
 ```
-Note that, this command only performs training in the `0th` person. You should modify the parameter of `-p` and repeat it.
 
+このコマンドは`0`番目の人のトレーニングのみを行います。`-p` のパラメータを変更して繰り返す必要があります。
+
+トレーニングテスト評価を行うには、以下のコマンドを実行します。
 To perform training-test evaluation, you can run
 
 ```
 python trainer/total.py -s config/train/config_xx.yaml    
 ```
 
+モデルをテストするには、以下のコマンドを実行します。
 To test your model, you can run
 ```
 python trainer/leave.py -s config/train/config_xx.yaml -t config/test/config_xx.yaml -p 0
 ```
-or
+または
 ```
 python trainer/total.py -s config/train/config_xx.yaml -t config/test/config_xx.yaml
 ```
 
-### Build your own project.
+### 独自のプロジェクトを構築する場合
+model.py 内のモデルを自身のプロジェクトにインポートすることができます。
 You can import the model in `model.py` for your own project.
 
+以下に例を示します。なお、model.py の line 114 は .cuda() を使用しています。CPUでモデルを実行する場合はこれを削除する必要があります。
 We give an example. Note that, the `line 114` in `model.py` uses `.cuda()`. You should remove it if you run the model in CPU.
 ```
 from model import Model
@@ -66,17 +68,19 @@ loss = GazeTR(img, label)
 gaze = GazeTR(img)
 ```
 
-## Pre-trained model
+## 事前学習済モデル(Pre-trained model)
+Google Drive  または  Baidu Cloud Disk  からコード 1234 を使用してダウンロードできます。
 You can download from <a href="https://drive.google.com/file/d/1WEiKZ8Ga0foNmxM7xFabI4D5ajThWAWj/view?usp=sharing" target="_blank"> google drive </a> or <a href="https://pan.baidu.com/s/1GEbjbNgXvVkisVWGtTJm7g" target="_blank"> baidu cloud disk </a> with code `1234`. 
-  
+
+これは、ETH-XGazeデータセットで50エポックと512バッチサイズで事前学習されたモデルです。
 This is the pre-trained model in ETH-XGaze dataset with 50 epochs and 512 batch sizes. 
 
-## Performance
+## パフォーマンス(Performance)
 ![ComparisonA](src/ComparisonA.png)
 
 ![ComparisonB](src/ComparisonB.png)
 
-## Citation
+## 引用(Citation)
 ```
 @InProceedings{cheng2022gazetr,
   title={Gaze Estimation using Transformer},
