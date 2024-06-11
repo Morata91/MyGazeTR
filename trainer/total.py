@@ -101,7 +101,7 @@ def main(config):
     scheduler.step()
 
 
-    with open(os.path.join(savepath, "train_log"), 'w') as outfile:
+    with open(os.path.join(savepath, "train_log.txt"), 'w') as outfile:
         outfile.write(ctools.DictDumps(config) + '\n')
 
         for epoch in range(1, params.epoch+1):
@@ -159,4 +159,5 @@ if __name__ == "__main__":
     print("=====================>> (End) Traning params << =======================")
 
     main(config.train)
+    print("===>> End << ===")
 
