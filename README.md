@@ -14,7 +14,28 @@ ICPR2022で採択された"**Gaze Estimation using Transformer**"の研究にお
 `warmup` は <a href="https://github.com/ildoonet/pytorch-gradual-warmup-lr" target="_blank">こちら</a>を参考に使用します。
 
 
+
 ## 使用方法(Usage)
+### チュートリアル
+```
+git clone "https://github.com/Morata91/MyGazeTR.git"
+cd MyGazeTR
+```
+
+```
+python -m venv .env
+source .env/bin/activate
+pip install -r requirements.txt
+```
+インストールされるもの
+・PyTorch
+・TorchVision
+・Numpy
+・OpenCV
+・YAML
+・easydict
+・warmup-scheduler
+
 ### 直接コードを使用する場合
 
 コードを実行するために、以下の3つのステップを行う必要があります。
@@ -30,7 +51,7 @@ python trainer/leave.py -s config/train/config_xx.yaml -p 0
 ```
 *テスト*
 ```
-python trainer/leave.py -s config/train/config_xx.yaml -t config/test/config_xx.yaml -p 0
+python tester/leave.py -s config/train/config_xx.yaml -t config/test/config_xx.yaml -p 0
 ```
 
 このコマンドは`0`番目の人以外のデータで学習し、`0`番目の人のデータでテストします。`-p` のパラメータを変更して繰り返す必要があります。
@@ -44,7 +65,7 @@ python trainer/total.py -s config/train/config_xx.yaml
 
 *テスト*
 ```
-python trainer/total.py -s config/train/config_xx.yaml -t config/test/config_xx.yaml
+python tester/total.py -s config/train/config_xx.yaml -t config/test/config_xx.yaml
 ```
 
 ### 独自のプロジェクトを構築する場合

@@ -3,12 +3,12 @@ test:
 
     load:
         begin_step: 10
-        end_step: 80
+        end_step: 10
         steps: 10
 
     data: 
-        image: "/userdata/MPII.zip/MPIIFaceGaze/Image"
-        label: "/userdata/MPII.zip/MPIIFaceGaze/Label"
+        image: "../../datasets/processed/MPII_2d/Image"
+        label: "../../datasets/processed/MPII_2d/Label"
         name: mpii
         header: True
         isFolder: True
