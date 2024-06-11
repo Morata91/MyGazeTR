@@ -24,25 +24,25 @@ ICPR2022で採択された"**Gaze Estimation using Transformer**"の研究にお
 3.	コマンドを実行します。
 
 leave-one-person-out評価を行うには、以下のコマンドを実行します。
+*学習*
 ```
 python trainer/leave.py -s config/train/config_xx.yaml -p 0
 ```
+*テスト*
+```
+python trainer/leave.py -s config/train/config_xx.yaml -t config/test/config_xx.yaml -p 0
+```
 
-このコマンドは`0`番目の人のトレーニングのみを行います。`-p` のパラメータを変更して繰り返す必要があります。
+このコマンドは`0`番目の人以外のデータで学習し、`0`番目の人のデータでテストします。`-p` のパラメータを変更して繰り返す必要があります。
 
 トレーニングテスト評価を行うには、以下のコマンドを実行します。
 To perform training-test evaluation, you can run
-
+*学習*
 ```
 python trainer/total.py -s config/train/config_xx.yaml    
 ```
 
-モデルをテストするには、以下のコマンドを実行します。
-To test your model, you can run
-```
-python trainer/leave.py -s config/train/config_xx.yaml -t config/test/config_xx.yaml -p 0
-```
-または
+*テスト*
 ```
 python trainer/total.py -s config/train/config_xx.yaml -t config/test/config_xx.yaml
 ```
