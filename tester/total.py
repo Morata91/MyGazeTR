@@ -69,8 +69,13 @@ def main(train, test):
 
         with torch.no_grad():
             for j, (data, label) in enumerate(dataset):
+                
+                
+                if j == 0:
+                    print(label)
+                
 
-                for key in data:
+                for key in data:  #key = ['name', 'face']
                     if key != 'name': data[key] = data[key].cuda()
 
                 names =  data["name"]

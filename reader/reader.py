@@ -138,3 +138,17 @@ def loader(source, batch_size, shuffle=True,  num_workers=0):
     load = DataLoader(dataset, batch_size=batch_size, shuffle=shuffle, num_workers=num_workers)
     return load
 
+def load_image(image_path, process=False):
+    image = cv2.imread(image_path)
+    if process:
+        image = cv2.cvtColor(image, cv2.COLOR_BGR2RGB)
+        image = cv2.resize(image, (224, 224))  # Assuming the model 
+        
+    transformer = transforms.Compose([
+        transforms.ToTensor()
+    ])
+    image = transformer(image).unsqueeze(0)  # Add batch dimension
+    return image
+
+
+

@@ -2,9 +2,7 @@
 
 ICPR2022で採択された"**Gaze Estimation using Transformer**"の研究において、GazeTR-Hybridのコードを提供しています。
 
-データ処理には、<a href="http://phi-ai.org/GazeHub/" target="_blank">*GazeHub*</a>で提供されているコードを使用することを推奨します。処理済みデータセットを使用して、直接メソッドのコードを実行できます。
-
-*注意: 一部のユーザーは、ブラウザでコードが開けない問題が発生することがあります。その場合、直接コードをダウンロードし、ファイル名を `xx.py` に変更してください。実際には、ダウンロードステップは自動的に処理されますが、ブラウザによってこの問題が発生することがあります。*
+データ処理には、<a href="https://phi-ai.buaa.edu.cn/Gazehub/3D-dataset/#mpiifacegaze" target="_blank">*GazeHub*</a>で提供されているコードを使用。処理済みデータセットを使用して、直接メソッドのコードを実行できます。
 
 <div align=center> <img src="src/overview.png"> </div>
 
