@@ -66,7 +66,7 @@ class TransformerEncoderLayer(nn.Module):
         return src
 
 class Model(nn.Module):
-    def __init__(self):
+    def __init__(self, usegpu = True):
         super(Model, self).__init__()
         maps = 32
         nhead = 8
@@ -74,6 +74,7 @@ class Model(nn.Module):
         dim_feedforward=512
         dropout = 0.1
         num_layers=6
+        self.usegpu = usegpu
 
         self.base_model = resnet18(pretrained=False, maps=maps)
 
@@ -111,7 +112,10 @@ class Model(nn.Module):
         cls = self.cls_token.repeat( (1, batch_size, 1))
         feature = torch.cat([cls, feature], 0)
         
-        position = torch.from_numpy(np.arange(0, 50)).cuda()
+        if self.usegpu:
+            position = torch.from_numpy(np.arange(0, 50)).cuda()
+        else:
+            position = torch.from_numpy(np.arange(0, 50))
 
         pos_feature = self.pos_embedding(position)
 
