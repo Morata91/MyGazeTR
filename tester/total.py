@@ -12,6 +12,7 @@ from easydict import EasyDict as edict
 import ctools, gtools
 import argparse
 
+
 # python tester/total.py -s config/train/config_xx.yaml -t config/test/config_xx.yaml
 # python tester/total.py -s config/train/config_mpii.yaml -t config/test/config_mpii.yaml
 
