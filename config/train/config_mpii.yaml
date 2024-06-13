@@ -16,8 +16,8 @@ train:
         step: 10
 
     data:
-        image: "../../datasets/processed/MPII_2d/Image"
-        label: "../../datasets/processed/MPII_2d/Label"
+        image: "../../datasets/processed/MPII_3d/Image"
+        label: "../../datasets/processed/MPII_3d/Label"
         header: True
         name: mpii
         isFolder: True

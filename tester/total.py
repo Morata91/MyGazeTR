@@ -13,6 +13,7 @@ import ctools, gtools
 import argparse
 
 # python tester/total.py -s config/train/config_xx.yaml -t config/test/config_xx.yaml
+# python tester/total.py -s config/train/config_mpii.yaml -t config/test/config_mpii.yaml
 
 def main(train, test):
 
@@ -71,8 +72,6 @@ def main(train, test):
             for j, (data, label) in enumerate(dataset):
                 
                 
-                if j == 0:
-                    print(label)
                 
 
                 for key in data:  #key = ['name', 'face']

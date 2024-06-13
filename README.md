@@ -1,15 +1,10 @@
 # GazeTR
 
-ICPR2022で採択された"**Gaze Estimation using Transformer**"の研究において、GazeTR-Hybridのコードを提供しています。
+ICPR2022で採択された"**Gaze Estimation using Transformer**"の研究において、提供されたGazeTR-Hybridを実装。
 
-データ処理には、<a href="https://phi-ai.buaa.edu.cn/Gazehub/3D-dataset/#mpiifacegaze" target="_blank">*GazeHub*</a>で提供されているコードを使用。処理済みデータセットを使用して、直接メソッドのコードを実行できます。
+データ処理には、<a href="https://phi-ai.buaa.edu.cn/Gazehub/3D-dataset/#mpiifacegaze" target="_blank">*GazeHub*</a>で提供されているコードを使用。
 
 <div align=center> <img src="src/overview.png"> </div>
-
-## Requirements
-このプロジェクトは pytorch1.7.0 を使用して構築します。
-
-`warmup` は <a href="https://github.com/ildoonet/pytorch-gradual-warmup-lr" target="_blank">こちら</a>を参考に使用します。
 
 
 
