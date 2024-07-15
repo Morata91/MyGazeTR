@@ -7,7 +7,6 @@ demo:
 
     data: 
         image: "../../datasets/processed/MPII_2d/Image/p00/face/1.jpg"
-        label: "../../datasets/processed/MPII_2d/Label"
         name: mpii
         header: True
         isFolder: False
